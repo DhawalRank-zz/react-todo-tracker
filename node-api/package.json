@@ -1,0 +1,33 @@
+{
+  "name": "api-todo-tracker",
+  "version": "0.1.0",
+  "description": "API for React TODO Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js --exec babel-node --presets es2015",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DhawalRank/api-todo-tracker.git"
+  },
+  "author": "Dhawal Rank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DhawalRank/api-todo-tracker/issues"
+  },
+  "homepage": "https://github.com/DhawalRank/api-todo-tracker#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "bluebird": "^3.5.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.14"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3"
+  }
+}
