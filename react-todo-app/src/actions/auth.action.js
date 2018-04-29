@@ -30,3 +30,7 @@ function login(username, password) {
     return { type: userConstants.LOGIN_FAILURE, error };
   }
 }
+function logout() {
+  userService.logout();
+  return { type: userConstants.LOGOUT };
+}
