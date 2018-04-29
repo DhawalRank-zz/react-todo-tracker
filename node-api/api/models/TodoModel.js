@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 var todoSchema = new mongoose.Schema({
   title: {
@@ -17,4 +17,4 @@ var todoSchema = new mongoose.Schema({
     enum: ["on", "off"]
   }
 });
-mongoose.model('Todos', todoSchema);
+mongoose.model("Todos", todoSchema);
