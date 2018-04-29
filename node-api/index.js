@@ -12,7 +12,7 @@ var server = http.createServer(app);
 
 server.listen(app.get("port"), function() {
   var port = server.address().port;
-  console.log("Server running on port: " + port);
+  console.log(`Server running on port: ${port}`);
 });
 
 /* -----------Server code ends--------------- */

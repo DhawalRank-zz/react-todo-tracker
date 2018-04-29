@@ -19,7 +19,7 @@ export function getTodoList(req, res) {
       console.warn("No data found");
       response = { status: 204, message: "No Content" };
     } else {
-      console.log("Found " + todoList.length + " todo(s)");
+      console.log(`Found ${todoList.length} todo(s)`);
       response = { status: 200, message: todoList };
     }
     res.status(response.status).json(response.message);

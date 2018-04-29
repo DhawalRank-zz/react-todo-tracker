@@ -12,15 +12,15 @@ mongoose.connect(dbUrl);
 //connection.on() --> listens to connection events
 //@param: event, callback
 mongoose.connection.on("connected", function() {
-  console.log("Mongoose connected to: ", dbUrl);
+  console.log(`Mongoose connected to: ${dbUrl}`);
 });
 
 mongoose.connection.on("disconnected", function() {
-  console.log("Mongoose disconnected from: ", dbUrl);
+  console.log(`Mongoose disconnected from: ${dbUrl}`);
 });
 
 mongoose.connection.on("error", function(error) {
-  console.log("Mongoose connection failed: ", error);
+  console.log(`Mongoose connection failed: ${error}`);
 });
 
 process.on("SIGINT", function() {
