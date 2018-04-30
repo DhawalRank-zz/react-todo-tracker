@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import bluebird from "bluebird";
 import { userName, password, url, dbName } from "./dbconfig.json";
 import todoSchema from "./api/models/TodoModel";
+import userSchema from "./api/models/UserModel";
 
 const dbUrl = `mongodb://${userName}:${password}@${url}/${dbName}`;
 
