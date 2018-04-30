@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 import bluebird from "bluebird";
-import { userName, password, url, dbName } from "./dbconfig.json";
+import { USERNAME, PASSWORD, DB_URL, DB_NAME } from "./dbconfig.json";
 import todoSchema from "./api/models/TodoModel";
 import userSchema from "./api/models/UserModel";
 
-const dbUrl = `mongodb://${userName}:${password}@${url}/${dbName}`;
+const dbUrl = `mongodb://${USERNAME}:${PASSWORD}@${DB_URL}/${DB_NAME}`;
 
 mongoose.Promise = bluebird;
 
