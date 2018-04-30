@@ -1,3 +1,5 @@
+import { API_ROOT } from "./apiconfig";
+
 export const userService = {
   login,
   logout
