@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
 import Todo from "./Todo";
@@ -25,4 +26,11 @@ class TodoList extends Component {
   }
 }
 
-export default TodoList;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth,
+    alert: state.alert
+  };
+};
+
+export default connect(mapStateToProps)(TodoList);

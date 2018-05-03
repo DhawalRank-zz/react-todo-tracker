@@ -1,14 +1,10 @@
 import { userConstants } from "./constants/user.constants";
+import { userService } from "../services/auth.service";
+import { alertActions } from "./alert.action";
 
-export const userActions = {
-  login,
-  logout
-};
-
-function login(username, password) {
+export function login(username, password) {
   return dispatch => {
     dispatch(request({ username }));
-
     userService.login(username, password).then(
       user => {
         dispatch(success(user));
@@ -30,7 +26,7 @@ function login(username, password) {
     return { type: userConstants.LOGIN_FAILURE, error };
   }
 }
-function logout() {
+export function logout() {
   userService.logout();
   return { type: userConstants.LOGOUT };
 }

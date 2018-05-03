@@ -1,4 +1,4 @@
-import { API_ROOT } from "./apiconfig";
+import { API_ROOT } from "../apiconfig";
 
 export const userService = {
   login,
@@ -11,7 +11,6 @@ function login(username, password) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password })
   };
-
   return fetch(`${API_ROOT}/login`, requestOptions)
     .then(response => {
       if (!response.ok) {
