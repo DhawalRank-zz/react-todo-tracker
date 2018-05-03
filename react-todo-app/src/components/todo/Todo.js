@@ -15,7 +15,7 @@ class Todo extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="Todo__container">
         <Card>
           <CardHeader title={this.props.title} subtitle={this.props.date} />
           <CardText>
