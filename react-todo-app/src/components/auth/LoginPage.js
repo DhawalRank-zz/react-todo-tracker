@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 
-const LoginPage = ({ errors, onClick, onChange, user }) => (
+const LoginPage = ({
+  errors,
+  handleOnChange,
+  handleOnClick,
+  user,
+  handleOnKeyPress
+}) => (
   <div className="Auth__login--container">
     <div className="Auth__login--title">
       <h2>Login</h2>
@@ -14,35 +20,43 @@ const LoginPage = ({ errors, onClick, onChange, user }) => (
         floatingLabelText="Email"
         name="email"
         errorText={errors.email}
-        onChange={onChange}
+        onChange={handleOnChange}
         value={user.email}
         fullWidth={true}
+        onKeyPress={handleOnKeyPress}
       />
 
       <TextField
         floatingLabelText="Password"
         type="password"
         name="password"
-        onChange={onChange}
+        onChange={handleOnChange}
         errorText={errors.password}
         value={user.password}
         fullWidth={true}
+        onKeyPress={handleOnKeyPress}
       />
 
       <div className="button-line">
         <br />
         <br />
-        <RaisedButton onClick={onClick} label="Log in" primary />
+        <RaisedButton
+          onClick={handleOnClick}
+          onKeyPress={handleOnKeyPress}
+          label="Log in"
+          primary
+        />
       </div>
     </div>
   </div>
 );
 
 LoginPage.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
+  handleOnClick: PropTypes.func.isRequired,
+  handleOnChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  handleOnKeyPress: PropTypes.func.isRequired
 };
 
 export default LoginPage;

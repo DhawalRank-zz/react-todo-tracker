@@ -33,15 +33,18 @@ class Login extends Component {
     }
   }
 
-  changeUser(event) {
-    const field = event.target.name;
+  handleOnChange(e) {
+    const field = e.target.name;
     const user = this.state.user;
-    user[field] = event.target.value;
+    user[field] = e.target.value;
     this.setState({
       user
     });
   }
-  onClick() {
+  handleOnKeyPress(e) {
+    if (e.key === "Enter") this.handleOnClick();
+  }
+  handleOnClick() {
     if (this.state.user.email === "") {
       this.setState({ errors: { email: "This field is required" } });
     } else if (this.state.user.password === "") {
@@ -54,8 +57,9 @@ class Login extends Component {
   render() {
     return (
       <LoginPage
-        onClick={() => this.onClick()}
-        onChange={e => this.changeUser(e)}
+        handleOnClick={() => this.handleOnClick()}
+        handleOnChange={e => this.handleOnChange(e)}
+        handleOnKeyPress={e => this.handleOnKeyPress(e)}
         errors={this.state.errors}
         user={this.state.user}
       />
