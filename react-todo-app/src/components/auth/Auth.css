@@ -1,3 +1,28 @@
 .Auth__exit-icon {
   margin-top: 4px;
 }
+
+.Auth__login--container {
+  width: 30%;
+  transform: translate(110%, 35%);
+  background-color: white;
+  padding: 0 0 3% 0;
+  border-radius: 10px;
+}
+
+.Auth__login--title {
+  background-color: rgba(207, 203, 203, 0.63);
+  padding: 1% 0 1% 3%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.Auth__login--content {
+  padding: 15%;
+}
+@media screen and (max-width: 700px) {
+  .Auth__login--container {
+    width: 80%;
+    transform: translate(13%, 23%);
+  }
+}
