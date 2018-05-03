@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import path from "path";
 import routes from "./api/routes";
 import http from "http";
+import { REACT_SERVER_ROOT } from "./reactconfig";
 
 const app = express();
 app.set("port", 3001);
@@ -19,6 +20,19 @@ server.listen(app.get("port"), function() {
 
 //display more information on console by using middleware
 app.use(function(req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", REACT_SERVER_ROOT);
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  // Set to true if you need the website to include cookies in the requests sent
+  // to the API (e.g. in case you use sessions)
+  res.setHeader("Access-Control-Allow-Credentials", true);
+
   console.log(req.method, req.url);
   next();
 });
