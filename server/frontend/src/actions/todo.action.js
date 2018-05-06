@@ -1,6 +1,7 @@
 import { todoConstants } from "./constants/todo.constants";
 import { todoService } from "../services/todo.service";
 import { alertActions } from "./alert.action";
+import { logout } from "./auth.action";
 
 export function getTodo() {
   return dispatch => {
@@ -10,6 +11,9 @@ export function getTodo() {
         dispatch(success(todos));
       },
       error => {
+        if (error.status === 401) {
+          dispatch(logout());
+        }
         dispatch(failure(error));
         dispatch(alertActions.error(error));
       }

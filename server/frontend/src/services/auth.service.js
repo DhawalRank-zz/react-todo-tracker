@@ -14,7 +14,10 @@ function login(username, password) {
   return fetch(`${API_ROOT}/login`, requestOptions)
     .then(response => {
       if (!response.ok) {
-        return Promise.reject(response.statusText);
+        return Promise.reject({
+          status: response.status,
+          message: response.statusText
+        });
       }
 
       return response.json();

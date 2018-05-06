@@ -23,21 +23,27 @@ class TodoList extends Component {
         {JsonHelper.isEmpty(this.props.todos) || this.props.todos.requested ? (
           <Loading />
         ) : (
-          <div className="App__div-center Todo__todo-width">
-            <FloatingActionButton
-              secondary={true}
-              className="Todo__floating-add-button"
-            >
-              <ContentAdd />
-            </FloatingActionButton>
-            {this.props.todos.map(aTodo => (
-              <Todo
-                key={aTodo._id}
-                title={aTodo.title}
-                date={aTodo.date}
-                alert={StringHelper.convertStringToBoolean(aTodo.alert)}
-              />
-            ))}
+          <div>
+            {this.props.todos.failed ? (
+              <h2>Failed to load data</h2>
+            ) : (
+              <div className="App__div-center Todo__todo-width">
+                <FloatingActionButton
+                  secondary={true}
+                  className="Todo__floating-add-button"
+                >
+                  <ContentAdd />
+                </FloatingActionButton>
+                {this.props.todos.map(aTodo => (
+                  <Todo
+                    key={aTodo._id}
+                    title={aTodo.title}
+                    date={aTodo.date}
+                    alert={StringHelper.convertStringToBoolean(aTodo.alert)}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
