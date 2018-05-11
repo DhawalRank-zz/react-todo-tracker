@@ -3,17 +3,11 @@ import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import routes from "./api/routes";
-import http from "http";
 import { REACT_SERVER_ROOT } from "./reactconfig";
-
 const app = express();
-app.set("port", 3001);
-console.log("Starting HTTP Server");
-var server = http.createServer(app);
 
-server.listen(app.get("port"), function() {
-  var port = server.address().port;
-  console.log(`Server running on port: ${port}`);
+app.listen(process.env.PORT || 3001, function() {
+  console.log(`Server running on port: ${process.env.PORT || 3001}`);
 });
 
 /* -----------Server code ends--------------- */
